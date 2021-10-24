@@ -1,0 +1,60 @@
+<mat-card-title style="text-align: center; margin: 15px auto">Войти в систему</mat-card-title>
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmitLoginForm()"
+  class="example-form" style="width: 100%"
+>
+  <div style="display: flex; flex-direction: column; justify-content: center;">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="email@email.com"
+        formControlName="email"
+      >
+    </mat-form-field>
+    <mat-card-subtitle *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+      <mat-error
+        *ngIf="loginForm.controls['email'].errors?.required"
+      >Поле Email обязательно для заполения
+      </mat-error>
+      <mat-error
+        *ngIf="loginForm.controls['email'].errors?.email"
+      >Введенный вами email не корректен
+      </mat-error>
+    </mat-card-subtitle>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Пароль</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="password"
+        formControlName="password"
+      >
+    </mat-form-field>
+    <mat-card-subtitle *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+      <mat-error
+        *ngIf="loginForm.controls['password'].errors?.required"
+      >Поле Password обязательно для заполения
+      </mat-error>
+      <mat-error
+        *ngIf="loginForm.controls['password'].errors?.minlength"
+      >Минимальное количество символов:
+        {{loginForm.controls['password'].errors?.minlength.requiredLength}},
+        текуще количество символов:
+        {{loginForm.controls['password'].errors?.minlength.actualLength}}
+      </mat-error>
+    </mat-card-subtitle>
+  </div>
+  <mat-card-actions style="display: flex; justify-content: center">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="loginForm.invalid || submit"
+    >Войти
+    </button>
+  </mat-card-actions>
+</form>
+<mat-card-subtitle>Нет аккаунта? <a routerLink="/register" style="color: #c2185b">Создать</a></mat-card-subtitle>

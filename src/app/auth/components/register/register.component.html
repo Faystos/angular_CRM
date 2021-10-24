@@ -1,0 +1,24 @@
+<mat-card-title style="text-align: center; margin: 15px auto">Создать аккаунт</mat-card-title>
+<form class="example-form" style="width: 100%">
+  <div style="display: flex; flex-direction: column; justify-content: center;">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="email@email.com">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="password">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password confirmation</mat-label>
+      <input type="password" matInput placeholder="password">
+    </mat-form-field>
+  </div>
+
+  <mat-card-actions style="display: flex; justify-content: center">
+    <button mat-raised-button color="primary">Создать</button>
+  </mat-card-actions>
+</form>
+<mat-card-subtitle>Уже есть аккаунт? <a routerLink="/login" style="color: #c2185b">Войти</a></mat-card-subtitle>
